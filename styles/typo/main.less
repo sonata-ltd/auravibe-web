@@ -1,0 +1,61 @@
+@import "./elements/separator.less";
+
+
+// Define properties
+@folder-name: "types";
+@mixins: display, text, code;
+@font-optical-size: 14;
+
+
+// Import fonts
+@font-face {
+    font-family: 'Inter';
+    src: url('@/assets/fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+@font-face {
+    font-family: 'SourceCodePro';
+    src: url('@/assets/fonts/SourceCodePro-VariableFont_wght.ttf');
+}
+
+
+// Import mixins with classes generation
+.display() {
+    @import ~"./@{folder-name}/display.less";
+}
+
+.text() {
+    @import ~"./@{folder-name}/text.less";
+}
+
+.code() {
+    @import ~"./@{folder-name}/code.less";
+}
+
+
+// Run all mixins
+.generate-fonts(@i: length(@mixins)) when (@i > 0) {
+    @mixin: extract(@mixins, @i);
+
+    .mixin-call(@name) when (@name = display) {
+        .display();
+    }
+
+    .mixin-call(@name) when (@name = text) {
+        .text();
+    }
+
+    .mixin-call(@name) when (@name = code) {
+        .code();
+    }
+
+    .mixin-call(@mixin);
+
+    .generate-fonts(@i - 1);
+}
+
+.generate-fonts();
+
+
+/* Generate Headings elements */
+/* @import "./elements/headers.less"; */
