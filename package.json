@@ -1,0 +1,40 @@
+{
+	"name": "@sonata-ltd/uikit",
+	"version": "0.1.0",
+	"description": "**AuraVibe** is a modular and highly customizable UI Kit designed for use with SolidJS. It provides a consistent design language, leveraging LESS for styling and CSS Modules to ensure scoped styles.",
+	"homepage": "https://github.com/sonata-ltd/auravibe-web#readme",
+	"bugs": {
+		"url": "https://github.com/sonata-ltd/auravibe-web/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sonata-ltd/auravibe-web.git"
+	},
+	"type": "module",
+	"files": [
+		"src"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"exports": {
+		".": "./src/index.ts",
+		"./components/*": "./src/components/*",
+		"./icons/*": "./src/icons/*",
+		"./styles/*": "./src/styles/*"
+	},
+	"peerDependencies": {
+		"motion": "^11.0.0",
+		"solid-js": "^1.9.0"
+	},
+	"dependencies": {
+		"clsx": "^2.1.1"
+	},
+	"devDependencies": {
+		"less": "^4.2.0",
+		"typescript": "^5.3.3",
+		"vite": "^7.3.1",
+		"vite-plugin-dts": "^4.5.4",
+		"vite-plugin-solid": "^2.11.10"
+	}
+}
